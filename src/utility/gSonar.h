@@ -17,7 +17,7 @@
   Time        -> microseconds (ms)
   Distance    -> millimeters (mm)
   Temperature -> celsius (c)
-  Velocity    -> millimeters per microsecond (mm/us)
+  Speed       -> millimeters per microsecond (mm/us)
 */
 
 #ifndef G_SONAR_H_
@@ -38,11 +38,11 @@ class gSonar{
 		virtual unsigned long raw() = 0;
 		float read(uint8_t unit = UNIT_DISTANCE_CM);
 		float filterRead(uint8_t unit = UNIT_DISTANCE_CM);
-		void  airTemperature(float temperature, uint8_t unit = UNIT_TEMPERATURE_C);
+		void  airTemperature(float , uint8_t unit = UNIT_TEMPERATURE_C);
 		float airTemperature(uint8_t unit = UNIT_TEMPERATURE_C);
-		void  soundVelocity(float velocity, uint8_t unit = UNIT_VELOCITY_MS );
-		float soundVelocity(uint8_t unit = UNIT_VELOCITY_MS );
-		void  gain(float newGain);
+		void  soundSpeed(float, uint8_t unit = UNIT_SPEED_MS );
+		float soundSpeed(uint8_t unit = UNIT_SPEED_MS );
+		void  gain(float);
 		float gain();
 
 	protected: 
@@ -52,7 +52,7 @@ class gSonar{
 	private:
 		uint8_t  _temperature;   //Temperature of the air
 		float    _distance;      //Filtered data
-		float    _velocity;      //Velocity of the sound in the air
+		float    _speed;         //Speed of the sound in the air
 		float    _gain;          //Gain of the filter
 		
 };
